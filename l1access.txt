@@ -1,0 +1,43 @@
+SERVER LOGIN
+
+username =ssh wdf3090@dltmyanmar.com (or) ssh wdf3090@157.230.240.154 (or) 
+username =ssh wdf3090@dltmyanmar.net (or) ssh wdf3090@137.184.248.101
+password =datalandtechnology
+
+
+_______________________________________________________________________________________________________________
+3/OCT
+
+
+DATABASE LOGIN
+
+serverထဲအရင်ရောက်ထားဖို့လို
+
+(Method 1)
+
+u => username
+p => password
+
+mysql -uWDF3090 -pdatalandtechnology
+
+(Method 2)
+mysql -u WDF3090 -p
+datalandtechnology
+
+exit (\q) => logout
+
+-> VERSION CHECK
+(METHOD 1 = in server)
+
+V => version
+
+mysql -V
+
+(METHOD 2 = in mysql)
+
+help; or \h or \? => version
+
+status; (\s) => version check
+
+________________________________________________________________
+

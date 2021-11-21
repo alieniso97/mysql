@@ -1,0 +1,71 @@
+9 Oct
+
+
+=> Arithmetic Operators (5types) (Work only in numeric)
+
+Operators					Meaning									Operates On
++(Add)						Addition								Numeric Value
+-(Subtract)					Subtraction								Numeric Value
+*(Multiply)					Multiplication							Numeric Value
+/(Divide)					division								Numeric Value
+%(Modulus)					Returns remainder of a division			Numeric Value
+
+
+___________________________________________________
+// Main keyword(mysql code) တွေအားလုံးကို capital letterနဲ့ရေး( မရေးလည်းအလုပ်တော့လုပ်ပေမဲ့ Capitalနဲ့ပဲရေး)
+//keyword နဲ့ no ကြား spaceခြားပေး
+//စာကြောင်းဆုံးတိုင်းဆုံးတိုင်း ' ; ' နဲ့ပိတ်ပေး
+//mysql မှာက numberဆို '' or "" ထဲထည့်လည်း No. မှန်းသိ
+
+//Tableနဲ့ဖော်ပြပေးတယ်
+
+
+
+Addition Opertor = Syntax
+
+SELECT 10 + 2;
+SELECT 10+2;
+SELECT '10' + 2;
+SELECT '10' + '2';
+
+SELECT 10+2,20+30;
+SELECT '100' + '200','300' + '400';
+
+
+Subtraction Operator = Syantax;
+
+SELECT 10 - 2;
+SELECT 20-10,30 - 15;
+SELECT '100' - '500','1500' - '528';
+
+
+Multiplication operator = syntax;
+
+SELECT 10 * 2;
+SELECT 5*3, 15* 5;
+
+
+Division operator and DIV = syntax;
+
+SELECT 10 / 2;
+SELECT 2/3 , 3 / 5;
+SELECT 100 / '25', '2000' / 2, 12/0;
+
+SELECT 20 DIV 3; 
+SELECT 5 DIV 2, -40 DIV 3, -100 DIV -7;
+//စားလဒ် ကိန်းပြည့်တန်ဖိုးရ / စားလို့မပြတ်လို့ ဒသမနောက်က ၅ OR ၅ ထက်ပိုကြီးလည်း အရှေ့တစ်မတိုးဘူး
+
+
+Modulus Operator and MOD = Syntax;
+
+SELECT 10 % 3;
+SELECT 2%3, 3 % 5;
+SELECT '2' % '3', '32' % '4';
+
+SELECT 2 MOD 3;
+SELECT '2345' MOD '23';
+SELECT 790 MOD 53, 290 % 3;
+SELECT 70 MOD 5, MOD(10,3);
+
+//MOD ကို FUNCTION METHOD အနေနဲ့လည်းသုံးလို့ရ 
+____________________________________________________

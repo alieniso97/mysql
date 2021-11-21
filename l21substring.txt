@@ -1,0 +1,89 @@
+=>SUBSTRING(Mysql start is 1)
+
+Syntax
+					value,start,end(count)
+SELECT SUBSTRING('Hello World',1,4);
+
+
+=>SUBSTR
+
+SUBSTR Syntax
+
+SELECT SUBSTR('Hello World',1,4);
+
+_______________________________________________
+
+//start ရော end(word count)ရောပါလျင်တော့ ဘယ်ကစပြီး ဘယ်နှလုံးယူမယ်ဆိုတာ ဆုံးဖြတ်လို့ရ
+//no.တစ်ခုတည်းပါရင် start အနေနဲ့ countလုပ်ပြီး အဆုံးထိယူသွား(ပေးထားတဲ့ noမှာရှိတဲ့စာလုံးအရေအတွက်ကစယူပြီး အဆုံးထိစာလုံးဖြတ်သွား)
+//special character ပါရင် "\" ခံသုံး
+//value က -value  ဖြစ်နေရင် အနောက်ကစရေ
+
+
+
+SELECT SUBSTRING('Hello World',1,6);
+
+SELECT SUBSTRING('Hello World',2,4);
+
+SELECT SUBSTRING('Hello World',3,4);
+
+SELECT SUBSTRING('Hello World',4);
+
+SELECT SUBSTRING('Mysql Online Class',10);
+
+*error
+SELECT SUBSTRING('Hello, I'm Mr.Anton',1,10);
+
+*Solution
+SELECT SUBSTRING("Hello, I'm Mr.Anton",1,10);
+
+*Solution
+SELECT SUBSTRING('Hello, I\'m Mr.Anton',1,10);
+
+ SELECT SUBSTRING('Hello World',-7);
+
+ SELECT SUBSTRING('Mysql Online Class',-10);
+
+
+
+
+SELECT * FROM persons;
+
+SELECT address FROM  persons;
+
+SELECT SUBSTRING(address,1,10) FROM persons;
+
+SELECT SUBSTRING(address,1,10) AS street FROM persons;
+
+SELECT SUBSTRING(address,1,10) AS 'short address' FROM persons;
+
+_______________________________________________
+
+SUBSTR();
+
+SELECT * FROM  persons;
+
+SELECT SUBSTR(address,1,10) FROM persons;
+
+SELECT SUBSTR(address,1,10) AS street FROM persons;
+
+SELECT SUBSTR(address,1,10) AS 'short address' FROM persons;
+
+_______________________________________________
+
+=>SUBSTRING() with  CONCAT()
+
+SELECT SUBSTRING(address,1,10) FROM persons;
+
+SELECT CONCAT(SUBSTRING(address,1,10),'...') FROM persons;
+
+SELECT CONCAT(
+SUBSTRING(address,1,10),'...'
+) AS 'Short Address' FROM persons;
+
+
+
+SELECT CONCAT(SUBSTR(address,1,10),'...') FROM persons;
+
+SELECT CONCAT(
+SUBSTR(address,1,10),'...'
+) AS 'Short Address' FROM persons;

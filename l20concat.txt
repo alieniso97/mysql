@@ -1,0 +1,66 @@
+6 Nov
+
+=>Concat
+Syntax
+
+SELECT CONCAT(firstname,lastname) FROM tablename;
+
+
+_________________________________________________________________
+
+SELECT CONCAT('Hello','World');
+
+SELECT CONCAT('Hello','','World');
+
+SELECT CONCAT('Hello','...','World');
+
+SELECT CONCAT('Hello','...',123);
+
+SELECT * FROM  persons;
+
+SELECT CONCAT(firstname,lastname) FROM persons;
+
+SELECT CONCAT(firstname,' ',lastname) FROM persons;
+
+SELECT CONCAT(firstname,' ',lastname) AS fullname FROM persons;
+
+SELECT CONCAT(firstname,' ',lastname) AS fullname,
+	city
+	FROM persons;
+
+SELECT firstname AS first,
+lastname AS last,
+CONCAT(firstname,' ',lastname) AS full
+FROM persons;
+
+SELECT firstname AS first,
+lastname AS last,
+CONCAT(firstname,',',lastname) AS full,
+city
+FROM persons;
+
+SELECT firstname AS full,
+lastname AS last,
+CONCAT (firstname,'/',lastname) AS full,
+city
+FROM persons;
+
+_________________________________________________________________
+ရိုးရိုးconcatမှာကျ ထည့်ချင်တဲ့နေရာမှာပဲသွားထည့်လို့ရဩ
+
+CONCAT_WS()ကကျ ကြားမှာထည့်ချင်တဲ့ separator(space,',',/,....) ကိုရှေ့ဆုံးမှာထည့်လိုက်ရင်ရ
+	=> ရွေးထားသမျှ columnတွေကြားမှာအကုန်သွားထည့်ပေးတယ်။
+
+
+
+=>CONCAT_WS(CONCAT With Separator)
+
+Syntax
+
+SELECT CONCAT_WS('_',firstname,lastname) FROM persons;
+
+SELECT CONCAT_WS('_',firstname,lastname,city) FROM persons;
+
+SELECT CONCAT_WS('/',firstname,lastname,city) FROM persons;
+
+SELECT CONCAT_WS('-',firstname,lastname,city) FROM persons;

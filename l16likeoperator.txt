@@ -1,0 +1,148 @@
+=>LIKE OPERATOR
+
+Wildcards
+
+/* Finds any values that start with "a"
+WHERE customer LIKE 'a%';
+
+/* Finds any values that end with "a"
+WHERE customer LIKE '%a';
+
+/* Finds any values that contain "or" in any position
+WHERE customer LIKE '%or%';
+
+/* Finds any values that have "r" in second position
+WHERE customer LIKE '_r%';
+
+/*Find any values that start with "a" and are at least 2 characters in length
+WHERE customer LIKE 'a_%';
+
+/*Find any values that start with "a" and are at least 3 characters in length
+WHERE customer LIKE 'a__%';
+
+
+/*Find any values that start with "a" and ends with "o";
+WHERE customer LIKE 'a%o';
+
+
+Syntax
+
+Method 1
+
+SELECT * FROM tablename
+WHERE columnname LIKE pattern;
+
+Method 2
+
+SELECT column1,column2,column3,....
+FROM tablename
+WHERE columnname LIKE pattern;
+
+_______________________________________________________________
+
+EXERCISE
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE 'maung maung';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE salary LIKE 200000;
+
+SELECT name,age,salary,city
+FROM employees
+WHERE salary LIKE '1%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE '%ng';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE '%zaw%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE 'T%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE '%NG';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE '%ZAW%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE '_a%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE 'a_%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE 'a__%';
+
+
+m zaw naw 20 100000 chin
+k yar	21	 200000	chin
+k 		22	 300000	chin
+mm		23	 400000	chin
+m 		24   500000 chin
+
+ INSERT INTO employees(name,age,salary,city) 
+ VALUES ('m zaw naw',20,100000,'chin'),
+  ('k yar',21,200000,'chin'),
+  ('k',22,300000,'chin'),
+  ('mm',23,400000,'chin'),
+  ('m',24,500000,'chin');
+
+
+SELECT name,age,salary,city 
+FROM employees 
+WHERE name LIKE 'm__%';
+
+SELECT name,age,salary,city 
+FROM employees 
+WHERE name LIKE 'k_%';
+
+SELECT name,age,salary,city 
+FROM employees 
+WHERE name LIKE 'k__%';
+
+SELECT name,age,salary,city
+FROM employees
+WHERE name LIKE 'a%g';
+
+
+
+_______________________________________________
+
+EXERCISE (LIKE '____')
+
+SELECT * FROM employees;
+
+xxxxx
+SELECT * FROM employees WHERE salary LIKE '_____';
+
+xxxxxx
+SELECT * FROM employees WHERE salary LIKE '______';
+
+
+________________________________________________
+
+exercise (LIKE '%') is anything
+
+SELECT * FROM emplolyees WHERE salary LIKE '%';
+
+=>aye_chan
+SELECT * FROM emplolyees WHERE name LIKE '%\_%';
+
+=>10%happy
+SELECT * FROM employees WHERE name LIKE '%\%%';
+
+
+

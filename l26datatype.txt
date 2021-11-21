@@ -1,0 +1,341 @@
+13 Nov
+=>Mysql DATA TYPES(Version V8)
+
+*String Data Types(14 types - 662=>6 for charcter,6 for binary,2 for other)
+
+Data Types							Description
+1.CHAR(size)						A FIXED length string(can contain letters,numbers and speical 											characters) . can be form 0 to 255
+2.VARCHAR(size)						A Variable length sting (can contain letters, numbers and special 										characters ) . can be from 0 to 65535
+3.TEXT(size)						can be from 256 to 65535	(65 Kb)
+4.TINYTEXT							can be from 1 to 255	(255 bytes)
+5.MEDIUMTEXT						can be from 65536 to 16777215 characters (16MB)(မှတ်ချက်တို့လို 												reasonတို့လိုမျိုး noteမှတ်ရုံလောက်အတွက်)
+6.LONGTEXT							can be from 16777216 to 4294967295 characters (4GB)
+
+
+7.BINARY(size)
+8.VARBINARY(size)
+9.BLOB
+10.TINYBLOB
+11.MEDIUMBLOB
+12.LONGBLOB
+
+
+13.ENUM('value1','value2','value3',....)
+14.SET('value1','value2','value3',....)
+
+_________________________________________________________________________________________________________
+
+အသုံးအများဆုံး => CHAR,VARCHAR,LONGTEXT
+
+
+			CHAR 								|				VARCHAR
+
+FIXED LENGTH DATATYPE							|	VARIABLE LENGTH DATATYPE
+(STATIC Datatype)								|	(Dynamic Datatype)
+												|
+memory ပေါ်မှာအလုပ်လုပ်တာ varcharထက်ပိုမြန်			| storage capacity မဖောင်းပွ
+(cuz no calculation)							| have to calculate the input character length in order to 												   | reduce the storage 	
+no extrabyte									| have extrabyte for spacing
+
+
+
+non unicode value(alpha value,numeric,special character)
+	||
+1 character = 1 byte = 8 bit
+	
+
+FIXED LENGTH
+	=> စကားလုံးအရှည်ကိုသတ်မှတ်ထားတာ 
+		like telephone no which has the excat length like 9 values in MYANMAR
+		zip codes as the same like telephone no
+		yes/no answer which has 3 and 2 value only (Flag: Y/N)
+		SEX: MALE/FEMALE answer as the same like yes/no (Flag: M/F)
+
+
+
+		STATIC Datatype									| 			DYNAMIC Datatype
+
+နဂိုပေးထားတဲ့ character size ရဲ့ lengthကိုပဲယူ					| နဂိုပေးထားတဲ့ size ကဘယ်လောက်များများ 
+														| ထည့်လိုက်တဲ့ စာလုံးLENGTH ကိုပဲ STORAGEမှာသိမ်း
+														|
+size က 5သတ်မှတ်ခဲ့ပြီး 									| size က 5သတ်မှတ်ပြီး ထည့်လိုက်တဲ့ characterက 4 လုံးဆို
+ထည့်လိုက်တဲ့ character က 4 လုံးဆိုလည်း 5လုံးစာအနေနဲ့ပဲယူ		| 4 လုံးစာအနေနဲ့ပဲယူ
+														|
+size က 5ယူပြီး characterက 5လုံးဆို storage က 5 byteပဲ		| size က 5ယူပြီး characterက ၅လုံးဆို storage က 6byte
+														|
+if character length < = size , storage capacity = size  | if character length < = size , storage capacity 														  |                          character length+spacing
+		|				 |								|			|				 |	
+	2 character 	<    5    	,  5byte				|		2 character 	<    5    	,  3byte
+	5 character 	=    5      ,  5byte				|		5 character 	=    5      ,  6byte
+														|
+no extrabyte											| 1 byte in storage for spacing
+
+
+_______________________________________________________________________________________________________
+
+=>About CHAR
+*CHAR is faster than VARCHAR
+* Static Datatype
+*eg: Telephone numbers, ZIP Code
+*eg: Yes/No Flags: Y/N
+*eg: Sex: Male/Female Flage: M/F
+
+Value 			CHAR(4)			Storage 		VARCHAR(4) 			Storage
+''				'    '			4bytes			''					1bytes		
+'ab' 			'ab  '			4bytes			'ab'				3bytes	
+'abc'			'abc '			4bytes			'abc'				4bytes
+'abcd'			'abcd'			4bytes			'abcd'				5bytes
+'abcdefg'		 error			4bytes			 error				 bytes		
+
+
+________________________________________________________________________________________________________		
+
+CREATE TABLE contacts(
+name CHAR(5)
+);
+
+DESC contacts;
+
+INSERT INTO contacts(name)
+VALUES('ko');
+
+INSERT INTO contacts(name)
+VALUES('ko ko');
+
+INSERT INTO contacts(name)
+VALUES('Hello');
+
+*error
+INSERT INTO contacts(name)
+VALUES('haynow');
+
+*error
+INSERT INTO contacts(name)
+VALUES('now hay');
+
+INSERT INTO contacts(name)
+VALUES ('aung'),
+('maung'),
+('ko');
+
+INSERT INTO contacts(name)
+VALUES('');
+
+DROP TABLE contacts;
+
+
+
+CREATE TABLE contacts(
+	name VARCHAR(5)
+	);
+
+DESC contacts;
+
+INSERT INTO contacts(name)
+VALUES('ko');
+
+INSERT INTO contacts(name)
+VALUES('ko ko');
+
+INSERT INTO contacts(name)
+VALUES('Hello');
+
+*error
+INSERT INTO contacts(name)
+VALUES('haynow');
+
+*error
+INSERT INTO contacts(name)
+VALUES('now hay');
+
+INSERT INTO contacts(name)
+VALUES ('aung'),
+('maung'),
+('ko');
+
+INSERT INTO contacts(name)
+VALUES('');
+__________________________________________________________________________________________________________
+
+14 Nov
+
+=>CHAR() / VARCHAR() VS TEXT()
+
+*TEXT()=> DEFAULT valueတစ်ခုခုပေးလို့မရဘူး
+		=>table structure မှာ text() လို့မဖော်ပြဘဲ tinytextလို့ဘဲဖော်ပြတယ်
+
+CREATE TABLE mytests(
+	id INT DEFAULT 10,
+	name VARCHAR(50)
+	);
+
+DESC mytests;
+
+INSERT INTO mytests(name)
+VALUES('aung aung');
+
+SELECT * FROM mytests;
+
+DROP TABLE mytests;
+
+
+CREATE TABLE mytests(
+id INT,
+name VARCHAR(50) DEFAULT 'nothing to show'
+);
+
+DESC mytests;
+
+INSERT INTO mytests(name)
+VALUES('aung aung');
+
+INSERT INTO mytests(id)
+ VALUES (10);
+
+SELECT * FROM mytests;
+
+DROP TABLE mytests;
+
+
+CREATE TABLE mytests(
+	id INT DEFAULT 10,
+	name TEXT(50)
+	);
+
+DESC mytests;
+
+INSERT INTO mytests(name)
+VALUES('aung aung');
+
+INSERT INTO mytests(id)
+ VALUES (10);
+
+SELECT * FROM mytests;
+
+DROP TABLE mytests;
+
+
+*error(BLOB,TEXT,GEOMETRY or JSON column 'name' can't have default value)
+CREATE TABLE mytests(
+id INT,
+name TEXT(50) DEFAULT 'nothing to show'
+);
+
+
+----------------------------------------------------------------------------
+
+
+=> VARIABLES
+
+*innodb engineပေါ်မှာ runနေတာ
+
+SHOW VARIABLES;
+
+*SHOW CHARACTER SET = for a single Database
+SHOW VARIABLES LIKE 'character_set_databse'; 	=> for charset
+
+SHOW VARIABLES LIKE 'collation_database';		=> for collation
+
+SHOW FULL COLUMNS FROM tablename; 
+
+SHOW TABLE STATUS WHERE NAME LIKE 'tablename';
+
+SHOW CREATE TABLE tablename;
+
+
+
+SHOW CHARACTER SET; 	=>DATABASEမှာပေးလို့ရတဲ့ FONT တွေရဲ့  စံစနစ်တွေ CODE တွေ
+
+Charset => သုံးချင်တဲ့ fontတွေရဲ့ codeတွေ table ထဲမှာထည့်ရေးပေးရမယ်
+
+Description => font name တွေ
+
+Default collation => screenမှာပြမဲ့ နာမည်
+
+max length => ဘာသာစကားအလိုက် character တစ်လုံးကို byte ဘယ်လောက်ယူတယ်ဆိုတာ ပြော
+		 	eg: english မှာဆို 'ab' character နှစ်လုံးပဲရှိလို့ 2byte
+		 		myanmar(unicode)မှာကျ 'အောင်' လိုမျိုးဆို '‌ေ အ ာ င ်'character ၅လုံးရှိပေမဲ့ 1 character ကို 3 byteယူတဲ့အတွက် စုစုပေါင်း 15byte 
+
+
+		  => ci => case insensitive လို့ပြောတာ
+
+*utf8_general_ci (ci is case insensitive) maxlength 3 is mean 3 byte per character.
+
+----------------------------------------------------------------------------
+
+CREATE TABLE mytests(
+     col1 TINYTEXT,
+     col2 TEXT,
+     col3 MEDIUMTEXT,
+     col4 LONGTEXT
+     );
+
+DESC mytests;
+
+DROP TABLE mytests;
+
+
+CREATE TABLE mytests(
+     col1 TEXT,
+     col2 TEXT(0), 			-- tinytext 1-255
+     col3 TEXT(5)
+     );
+
+DESC mytests;
+
+INSERT INTO mytests (col1,col2,col3)
+     VALUES('aung aung','maung maung','aung kyaw kyaw');
+
+SELECT * FROM mytests;
+
+DROP TABLE mytests;
+
+ CREATE TABLE mytests( 
+ 	 col1 TEXT(255),		-- tinytext 1-255
+	 col2 TEXT(65535),		-- text 256-65535
+	 col3 TEXT(16777215),	-- mediumtext 65536-16777215
+	 col4 TEXT(4294967295)	-- longtext 16777216-4294967295
+) ENGINE=InnoDB CHARSET=latin1;
+
+DESC mytests;
+
+DROP TABLE mytests;
+
+CREATE TABLE mytests( 
+ 	 col1 TEXT(255),		
+	 col2 TEXT(65535),		
+	 col3 TEXT(16777215),	
+	 col4 TEXT(4294967295)	
+) ENGINE=InnoDB CHARSET=latin1;
+
+SHOW FULL COLUMNS FROM mytests;
+
+SHOW TABLE STATUS WHERE NAME LIKE 'mytests';
+
+SHOW CREATE TABLE mytests;
+
+DROP TABLE mytests;
+
+CREATE TABLE mytests( 
+ 	 col1 TEXT(255),		
+	 col2 TEXT(65535),		
+	 col3 TEXT(16777215),	
+	 col4 TEXT(4294967295)	
+) ENGINE=InnoDB CHARSET=utf8;
+
+DESC mytests;
+
+DROP TABLE mytests;
+
+CREATE TABLE mytests(
+    col1 TEXT(85),			-- tinytext 1-255/3 = 85
+    col2 TEXT(21845),		-- text 86-65535/3 = 21845
+    col3 TEXT(5592405),		-- mediumtext 21846-16777215/3 = 5592405
+    col4 TEXT(4294967295)	-- longtext 5592406-4294967295
+    ) ENGINE=InnoDB CHARSET=utf8;
+
+DESC mytests;
+
+DROP TABLE mytests;
+
+sql comment => -- something

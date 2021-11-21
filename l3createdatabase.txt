@@ -1,0 +1,37 @@
+=> Check Databases
+
+//ကိုယ့်ရဲ့ mysql databaseထဲမှာ pjရေးဖို့ ဘာdatabaseတွေထည့်ထားလဲရှာချင်ရင်
+//PJတစ်ခုက DATABASEတစ်ခု
+//DATABASE SERVERမှာ Databaseအများကြီးထည့်လို့ရ => server ကြီးရင်ကြီးသလောက် database ထည့်နိုင်တဲ့ပမာဏကွာသွား
+//DATABASEအများကြီးကို ဖော်ပြခိုင်းတာမို့ DATABASE မှာ S ထည့်
+
+
+SHOW DATABASES;
+
+
+
+=>Create Database
+
+//Numeric only မရေးရ, special character($#%) တွေမထည့်ရ
+//စာလုံးအသေးတွေနဲ့ပဲရေး အနည်းကိန်းနဲ့ပဲရေး
+//CREATE DATABASEကတစ်ခုပဲဖန်တီးမှာမို့  DATABASEမှာ Sထည့်စရာမလို
+
+
+CREATE DATABASE wdf3090;
+
+
+
+=> Delete Databse
+
+DROP DATABASE wdf3090;
+
+
+
+=>Choose Database
+
+USE wdf3090;
+
+
+
+=>Check Current Database
+SELECT database();

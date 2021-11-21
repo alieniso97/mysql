@@ -1,0 +1,103 @@
+10 Oct
+
+
+=>CREATE TABLE
+
+*SERVER LOGIN
+*DATABASE SERVER LOGIN
+*CHOOSE DATABASE(DATABASE CHECK)
+
+
+=>CHECK TABLE
+SHOW TABLES;
+
+
+=>Create Table = Syntax
+
+CREATE TABLE table_names(
+	column1 datatype,
+	column2 datatype,
+	column3 datatype,
+	.......
+);
+
+
+tablename 
+	must not be numeric only nor including special character.
+	can use '_' between different meaning phrase.
+
+
+In dataland format, 
+	-should only include small letter and include 's'.
+
+column should be within  ( ) and there must be a space between column and datatype.
+
+
+CREATE TABLE persons(
+	personid int,
+	firstname varchar(255),
+	lastname varchar(255),
+	city varchar(255),
+	address varchar(255)
+);
+
+
+
+Datatype 
+int => integer(number)
+varchar => စာသား jsမှာဆို string
+		=> parameter 0 ကနေ 255အထိ(စာလုံးအရေအတွက်၂၅၅အထိရေးလို့ရ)
+
+
+SHOW TABLES;
+
+
+=>Table Info(Describe)
+
+Method 1
+DESC persons;
+
+Method 2
+SHOW COLUMNS FROM persons
+
+DESC => describe
+Field => column titleတွေကိုပြောတာ
+
+Null value => yes => အဲ့ထဲက informationဖြည့်လည်းရမဖြည့်လည်းရ (html မှာဆို requiredပါတဲ့dataမဟုတ်)
+
+_____________________________________________________________________________________________
+
+=>With Option(Data တွေကိုထည့်လည်းရမထည့်လည်းရ ရွေးချယ်လို့ရ) => Null
+
+
+CREATE TABLE countries(
+	countryid int,
+	countryname varchar(255),
+	capitalname varchar(255),
+	currency varchar(255)
+);
+
+
+
+=>NO option(Data တွေကိုမဖြစ်မနေထည့်ရ ရွေးချယ်ခွင့်မရှိ) => Not Null
+
+CREATE TABLE countries(
+	countryid int NOT NULL,
+	countryname varchar(255) NOT NULL,
+	capitalname varchar(255),
+	currency varchar(255)
+);
+
+SHOW TABLES;
+
+DESC countries;
+
+
+
+
+_______________________________________________________________________________________________
+tableတွေကို  deleteမလုပ်ခင် database ကိုစစ် tablename ကိုစစ်ပြီးမှဖျက်
+
+
+=>Delete Table = Syntax
+DROP TABLE tablename;

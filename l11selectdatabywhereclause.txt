@@ -1,0 +1,91 @@
+SELECT DATA BY USING WHERE CLAUSE
+NOTE: WHERE clause is not only used in SELECT record, it is also used in UPDATE, DELETE...
+
+Method 1 Syntax
+
+SELECT * FROM tablename
+WHERE condition;
+
+Method 2 Syntax
+SELECT column1,column2,...
+FROM tablename
+WHERE condition;
+
+
+Operators in WHERE Clause (9 types)
+=	Equal
+>	Greater Than
+<	Less Than	
+>=	Greater than or equal
+<=	Less than or equal
+<> 	Greater than or Less Than, Note : note equal , !=
+BETWEEN
+LIKE
+IN
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "mandalay";
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "mandalay";
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "tin htut";
+
+/*Case Sensitive မဖြစ် valueတော့တူရ
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "Tin Htut";
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "Tin htut";
+
+
+*error(empty set)
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "Tin";
+
+*error(empty set)
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "Tin h";
+
+*error(empty set)
+SELECT personid,firstname,city
+FROM persons
+WHERE city = "tin";
+
+
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city  LIKE "tin htut";
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city  LIKE "Tin Htut";
+
+SELECT personid,firstname,city
+FROM persons
+WHERE city  LIKE "Tin htut";
+
+*error(empty set)
+SELECT personid,firstname,city
+FROM persons
+WHERE city LIKE "Tin";
+
+*error(empty set)
+SELECT personid,firstname,city
+FROM persons
+WHERE city LIKE "Tin h";
+
+*error(empty set)
+SELECT personid,firstname,city
+FROM persons
+WHERE city LIKE "tin";
